@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<style>
+	html, *{
+  padding: 0;
+  margin: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #008b8b;
+  background: #0f8a9d;
+  background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+  clip-path: (50% 0%, 50% 50%, 100% 80%, 0% 50%);
+  background-size: auto;
+  overflow-x: hidden !important;
+}
+
+.container {
+  width: 50%;
+  padding: 30px;
+  border: 5px solid #0f8a9d;
+  margin: auto;
+  background: #0f8a9d;
+  background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+  clip-path: (0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  color: #f0f8ff;
+;
+  border-radius: 6.2px;
+}
+
+
+p {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+input{
+  color: #000 !important;
+  margin: 10px;  
+
+}
+
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before
+{
+  width: 20%;
+  padding: 1em;
+  line-height: 1.4;
+  background-color: #ffffff;
+  border: 1px solid rgb(70, 67, 67);
+  border-radius: 3px;
+  -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+input:focus {
+  outline: 10000;
+  outline-color: #120a8f;
+  margin: 30px;
+  border-color: #ff0000;
+  box-shadow: 0 0 45px #120a8f;
+}
+
+input:focus + .input-icon:after {
+  border-right-color: #00C6A7;
+}
+
+
+#submit{
+  width: 90%;
+  background-color: #0080ff;
+  color: #000 !important;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media(max-width: 1024px) {
+  .container{
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+@media(max-width: 676px) {
+  .container {
+    width: 100%;
+    font-size: 18px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-top: 20px;
+ }
+
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+	<center><h1>DIABETES PREDICTOR</h1><br>
+	    <form action="{{url_for('predict')}}"method="post">
+            <p>Pregnancies</p>
+            <!-- Pregnancies -->
+            <input type="number" name="Pregnancies" id="Preg" required> <br><br> 
+    
+    
+            <p>Glucose</p>
+            <!-- Glucose-->
+            <input type="number" name="Glucose" id="Glu" required> 
+            <br><br> 
+    
+            <p>Blood Pressure</p>
+            <!-- bp: Blood Pressure -->
+            <input type="number" name="Blood Pressure" id="bp" required> 
+            <br><br>
+    
+            <p>Skin Thickness</p>
+            <input type="number" name="Skin Thickness" id="skin" required>
+	    <br><br> 
+
+    
+            <p>Insulin</p>
+            <!-- Insulin -->
+            <input type="number" name="Insulin" id="ins" required> <br><br> 
+
+            <p>Body Mass Index</p>
+            <!-- bp: Blood Pressure -->
+            <input type="text" name="Body Mass Index" id="bmi" required> 
+            <br><br>
+    
+            <p>Diabetes Pedigree Function</p>
+            <input type="text" name="Diabetes Pedigree Function" id="dpf" required>
+	    <br><br> 
+    
+            <p>Age</p>
+            <!-- Age -->
+            <input type="number" name="Age" id="age" required> <br><br> 
+            
+    
+            <button id="submit" type="submit" >Predict Diabetes</button>
+        </form>
+		{{prediction}}
+    </div>
+</center>
+</body>
+</html>
